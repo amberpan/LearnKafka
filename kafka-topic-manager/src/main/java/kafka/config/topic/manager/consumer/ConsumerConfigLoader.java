@@ -1,10 +1,10 @@
 package kafka.config.topic.manager.consumer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.util.Pair;
 import kafka.config.topic.manager.model.FetchMechanism;
 import kafka.config.topic.manager.model.KafkaConfigBase;
 import kafka.config.topic.manager.model.KafkaConsumerTopicConfig;
+import kafka.config.topic.manager.model.Pair;
 import org.apache.commons.io.IOUtils;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
