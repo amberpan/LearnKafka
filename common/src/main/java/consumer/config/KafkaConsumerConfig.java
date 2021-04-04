@@ -1,4 +1,4 @@
-package kafka.consumer.model;
+package consumer.config;
 
 
 import org.apache.kafka.common.serialization.Deserializer;
@@ -7,8 +7,8 @@ import java.util.List;
 
 public class KafkaConsumerConfig {
     List<String> servers;
-    Class keyDeserializer;
-    Class valueDeserializer;
+    Deserializer keyDeserializer;
+    Deserializer valueDeserializer;
     String topicGroup;
     List<String> topics;
     List<Integer> partitions;
@@ -23,20 +23,20 @@ public class KafkaConsumerConfig {
         return this;
     }
 
-    public Class getKeyDeserializer() {
+    public Deserializer getKeyDeserializer() {
         return keyDeserializer;
     }
 
-    public KafkaConsumerConfig setKeyDeserializer(Class keyDeserializer) {
+    public KafkaConsumerConfig setKeyDeserializer(Deserializer keyDeserializer) {
         this.keyDeserializer = keyDeserializer;
         return this;
     }
 
-    public Class getValueDeserializer() {
+    public Deserializer getValueDeserializer() {
         return valueDeserializer;
     }
 
-    public KafkaConsumerConfig setValueDeserializer(Class valueDeserializer) {
+    public KafkaConsumerConfig setValueDeserializer(Deserializer valueDeserializer) {
         this.valueDeserializer = valueDeserializer;
         return this;
     }

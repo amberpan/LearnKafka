@@ -2,6 +2,7 @@
   <configuration default="false" name="KafkaConsumerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="kafka.consumer.KafkaConsumerApplication" />
     <module name="kafka.consumer.main" />
+    <option name="VM_PARAMETERS" value="-Dconsumer.config.locations=config/topic_announce.json" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="kafka.consumer.*" />

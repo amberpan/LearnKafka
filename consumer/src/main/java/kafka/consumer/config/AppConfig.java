@@ -1,5 +1,6 @@
 package kafka.consumer.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,5 +26,10 @@ public class AppConfig {
         prop.put("value.deserializer",valueSerializer);
         prop.put("group.id",topicGroup);
         return new KafkaConsumer<String, String>(prop);
+    }
+
+    @Bean
+    public ObjectMapper objectMapper(){
+        return new ObjectMapper();
     }
 }

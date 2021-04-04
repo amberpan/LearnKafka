@@ -1,4 +1,6 @@
 rootProject.name = 'kafka'
 include 'producer'
 include 'consumer'
+include 'common'
+include 'kafka-topic-manager'
 
