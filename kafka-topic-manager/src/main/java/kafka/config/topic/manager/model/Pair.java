@@ -1,28 +1,3 @@
-/*
- * Copyright (c) 2010, 2013, Oracle and/or its affiliates. All rights reserved.
- * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- */
-
 package kafka.config.topic.manager.model;
 
 import javafx.beans.NamedArg;
@@ -31,7 +6,6 @@ import java.io.Serializable;
 
 /**
  * <p>A convenience class to represent name-value pairs.</p>
- * @since JavaFX 2.0
  */
 public class Pair<K,V> implements Serializable{
 
@@ -98,22 +72,6 @@ public class Pair<K,V> implements Serializable{
        return key.hashCode() * 13 + (value == null ? 0 : value.hashCode());
    }
 
-    /**
-     * <p>Test this <code>Pair</code> for equality with another
-     * <code>Object</code>.</p>
-     *
-     * <p>If the <code>Object</code> to be tested is not a
-     * <code>Pair</code> or is <code>null</code>, then this method
-     * returns <code>false</code>.</p>
-     *
-     * <p>Two <code>Pair</code>s are considered equal if and only if
-     * both the names and values are equal.</p>
-     *
-     * @param o the <code>Object</code> to test for
-     * equality with this <code>Pair</code>
-     * @return <code>true</code> if the given <code>Object</code> is
-     * equal to this <code>Pair</code> else <code>false</code>
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
