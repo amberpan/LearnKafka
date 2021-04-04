@@ -1,0 +1,32 @@
+{
+  "topics": [
+    "announce_topic_part"
+  ],
+  "bootstrapServers": [
+    "localhost:9092"
+  ],
+  "totalPartitions": 3,
+  "consumerConfig": {
+    "keyDeserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+    "eventDeserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+    "fetchMechanism": "PARTITION",
+    "consumers": [
+      {
+        "id": "announceTopicConsumer1",
+        "group": "announce_topic_group_1",
+        "timeout": 100,
+        "partitions": [1,2],
+        "consumerRecordsProcessorBean": "announcementRecordsProcessor",
+        "configProperties": {}
+      },
+      {
+        "id": "announceTopicConsumer2",
+        "group": "announce_topic_group_1",
+        "timeout": 100,
+        "partitions": [0],
+        "consumerRecordsProcessorBean": "announcementRecordsProcessor",
+        "configProperties": {}
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "topic": "announce_topic",
+  "bootstrapServers": [
+    "localhost:9092"
+  ],
+  "partitions": 1,
+  "producerConfig": {
+    "eventSerializer": "StringSerializer",
+    "partitionResolverSerializer": "StringSerializer",
+    "ackMode": "all",
+    "producers": [
+      {
+        "id": "announceTopicProducer1",
+        "configProperties": {}
+      }
+    ]
+  },
+  "consumerConfig": {
+    "eventDeserializer": "StringSerializer",
+    "fetchMechanism": "TOPIC/PARTITION",
+    "consumers": [
+      {
+        "id": "announceTopicConsumer1",
+        "group": "announce_topic_group_1",
+        "configProperties": {}
+      }
+    ]
+  }
+}

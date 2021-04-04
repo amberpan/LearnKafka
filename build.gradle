@@ -28,6 +28,13 @@ dependencies {
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 }
 
+bootJar{
+	enabled = false
+}
+
+jar{
+	enabled = false
+}
 
 test {
 	useJUnitPlatform()
