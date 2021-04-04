@@ -23,6 +23,9 @@ public class KafkaProducerController {
     @Value("${kafka.publisher.generic.topic}")
     String announceTopic;
 
+    @Value("${kafka.publisher.generic.topic.partitioned}")
+    String announceTopicPartitioned;
+
     @Autowired
     KafkaProducer<String,String> kafkaProducer;
 
@@ -35,6 +38,27 @@ public class KafkaProducerController {
                 try {
                     RecordMetadata recordMetadata = recordMetadataFuture.get();
                     LOGGER.info("Record sent timestamp: {}",recordMetadata.timestamp());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            });
+        }catch (Exception e){
+            return "Could not publish messages to Kafka";
+        }
+        return "Request completed successfully";
+    }
+
+    @GetMapping(value = "/publishPartition/{count}")
+    public String publishWithPartition(@PathVariable("count") Long count) {
+        try {
+            LongStream.rangeClosed(1, count).forEach(c -> {
+                Future<RecordMetadata> recordMetadataFuture = kafkaProducer.send(new ProducerRecord(announceTopicPartitioned,String.valueOf(c), "Announcement: " + c));
+
+                try {
+                    RecordMetadata recordMetadata = recordMetadataFuture.get();
+                    LOGGER.info("Record sent with timestamp={} and partition={}",recordMetadata.timestamp(),recordMetadata.partition());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
